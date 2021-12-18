@@ -1,0 +1,23 @@
+<div class="criteria border border-1">
+    <div class="container">
+    <h5><i class="fa fa-filter"></i>Tiêu chí</h5>
+      <div class="row" *ngFor="let tkb of this.tkb" (click)="chooseTKB(tkb)">
+        <div class="col-9"><p>{{tkb | leftSidebar}}</p></div>
+        <div class="col-3"><input name="criteria-radio" type="radio"></div>
+      </div>
+      
+  <!--  <div class="row">-->
+  <!--    <div class="col-9"><p>Full sáng</p></div>-->
+  <!--    <div class="col-3"><input name="criteria-radio" type="radio"></div>-->
+  <!--  </div>-->
+  <!--  <div class="row">-->
+  <!--    <div class="col-9"><p>Full chiều</p></div>-->
+  <!--    <div class="col-3"><input name="criteria-radio" type="radio"></div>-->
+  <!--  </div>-->
+  <!--  <div class="row">-->
+  <!--    <div class="col-9"><p>Tối ưu cơ sở</p></div>-->
+  <!--    <div class="col-3"><input name="criteria-radio" type="radio"></div>-->
+  <!--  </div>-->
+  <!--    -->
+    </div>
+  </div>

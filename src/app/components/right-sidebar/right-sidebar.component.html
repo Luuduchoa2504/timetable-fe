@@ -1,0 +1,52 @@
+<div class="right-side-bar border border-1">
+    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 group-search">
+      <div class="input-group ">
+        <input type="search" placeholder="Tìm kiếm" aria-describedby="button-addon1" [(ngModel)]="keyword"
+          class="form-control border-0 bg-light">
+        <div class="input-group-append">
+          <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="row item-subject" *ngFor="let monhoc of monhocs | rightSidebar:keyword">
+      <div class="col-2">
+        <input class="form-check-input" type="checkbox" value="" [checked]="monhoc.isActive"
+          (change)="onChecked($event, monhoc)" id="flexCheckIndeterminate">
+      </div>
+      <div class="col-10">
+        <label class="form-check-label" for="flexCheckIndeterminate">
+          {{monhoc.maMonHoc +"-"+ monhoc.ten}}
+        </label>
+        <!--      <label class="form-check-label" for="flexCheckIndeterminate">-->
+        <!--        Trịnh Đức Hiếu-->
+        <!--      </label>-->
+      </div>
+    </div>
+    <h5>Các môn học đã chọn</h5>
+    <div class="row item-subject" *ngFor="let monhoc of tempMonHoc">
+      <div class="col-2">
+        <input class="form-check-input" type="checkbox" checked="checked" id="flexCheckIndeterminate1"
+          (change)="removeMonHoc($event, monhoc)">
+      </div>
+      <div class="col-10">
+        <label class="form-check-label" for="flexCheckIndeterminate1">
+          {{monhoc.maMonHoc +"-"+ monhoc.ten}}
+        </label>
+        <!--      <label class="form-check-label" for="flexCheckIndeterminate1">-->
+        <!--        Trịnh Đức Hiếu-->
+        <!--      </label>-->
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button type="button" class="btn btn-refresh">Refresh</button>
+      </div>
+      <div class="col-6">
+        <button type="button" class="btn btn-sort" (click)="sapXep()">Xếp</button>
+      </div>
+    </div>
+    <button type="button" class="btn btn-update">Cập nhật dữ liệu</button>
+  </div>
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
